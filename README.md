@@ -19,7 +19,7 @@ Now run ```minikube start```
 This will take another few minutes as it has to download the .iso to set up the VM. 
 
 Once complete, run ```ls -ltr ~/.minikube```
-You'll see all the ```minikube``` setup files are stored here. 
+You'll see all the ```minikube``` setup files are stored here. (Important for later)
 
 Now check VirtualBox, you'll see the ```minikube``` vm is running. 
 
