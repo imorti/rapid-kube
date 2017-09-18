@@ -2,7 +2,7 @@
 A quick way to get started with kubernetes, minikube and kube-prompt
 
 # Overview
-In this tutorial, we're going to setup ```minikube``` on our local machine. We're going to examine where ```minikube``` stores it's configuration. We'll then make use of a tool called ```kube-prompt``` to save ourselves from typing ```kubectl``` on every command. We'll set up some monitoring using ```Heapster```. Finally, we'll get used to using a package manager called ```helm```. Let's get started. 
+In this tutorial, we're going to setup ```minikube``` on our local machine. We're going to examine where ```minikube``` stores it's configuration. We'll get `kubectl` configured to use our local cluster. We'll then make use of a tool called ```kube-prompt``` to save ourselves from typing ```kubectl``` on every command. We'll set up some monitoring using ```Heapster```. Finally, we'll get used to using a package manager called ```helm```. Let's get started. 
 > From now on we'll assume we're on a MAC. 
 # Set up
 For this you'll need [virtualbox for MAC OSX](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwi827GU-67WAhVUzWMKHdf2D-cQFggoMAA&url=https%3A%2F%2Fwww.virtualbox.org%2Fwiki%2FDownloads&usg=AFQjCNHg31Pp26-AJ-5fjqSw3azAsjfvpg)
@@ -39,9 +39,14 @@ Now, let's get into the dashboard. Run: ```minikube dashboard```.
 
 You'll see the minikube dashboard which is very close to the Kubernetes Dashboard you've probably seen in demos. 
 
-Click from pods, to deployments to services. Notice: the only thing running is ```kubernetes``` itself. 
+Click from pods, to deployments to services. Notice: the only thing running is ```kubernetes``` itself. Just to make sure we're properly set up, let's run a few `kubectl` commands to look at our cluster from the command-line. 
 
-Before we run workloads on our minikube we need to install [kube-prompt](https://github.com/c-bata/kube-prompt) - you'll thank me. This is a command-completion tool for use with `kubectl`. 
+Run:
+1. `kubectl cluster-info`. You should see this as output: 
+```Kubernetes master is running at https://192.168.99.101:8443```
+```To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.```
+   
+Before we run workloads on our `minikube` we need to install [kube-prompt](https://github.com/c-bata/kube-prompt) - you'll thank me. `kube-prompt` is a command-completion tool for use with `kubectl`. 
 
 Run: ```$ brew tap c-bata/kube-prompt```
    
@@ -49,3 +54,8 @@ Run: ```$ brew tap c-bata/kube-prompt```
 ``` $ brew install kube-prompt```
 
 This will save us from typing ```kubectl``` a million times. 
+
+2. Now let's run `kube-prompt`. 
+3. In our prompt we just have to run `get pods`, `get deployments` and `get services` to see what's running on our cluster. Do so now. 
+Notice you can tab on your choices as you type? Yeah, that's `kube-prompt` at work!
+
