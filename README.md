@@ -31,6 +31,18 @@ Run ```minikube status```.
    kubectl: Correctly Configured: pointing to minikube-vm at 192.168.99.101
 ```
 
-Now, let's get into the ```minikube dashboard```. 
+Now, let's get into the dashboard. Run: ```minikube dashboard```. 
 
+You'll see the minikube dashboard which is very close to the Kubernetes Dashboard you've probably seen in demos. 
 
+Click from pods, to deployments to services. Notice: the only thing running is ```kubernetes``` itself. 
+
+Before we run workloads on our minikube we need to install two tools:
+1. [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-binary-via-curl) the kubernetes CLI. 
+2. [kube-prompt](https://github.com/c-bata/kube-prompt) - you'll thank me. This is a command-completion tool for use with kubectl. 
+Run: ```$ brew tap c-bata/kube-prompt```
+   
+   Then:
+``` $ brew install kube-prompt```
+
+This will save us from typing ```kubectl``` a million times. 
