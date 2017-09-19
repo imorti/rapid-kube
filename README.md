@@ -59,3 +59,13 @@ This will save us from typing ```kubectl``` a million times.
 3. In our prompt we just have to run `get pods`, `get deployments` and `get services` to see what's running on our cluster. Do so now. 
 Notice you can tab on your choices as you type? Yeah, that's `kube-prompt` at work!
 
+# Workloads
+* In our `kube-prompt` terminal session, run: `run nginx --image nginx --port 80`
+* Now run `get deployments` (notice you can tab-select deployments as you type). 
+* Now let's expose this deployment so we can access it from outside our cluster: `expose deployment nginx --type NodePort --port 80`
+* To view our service we run `get servivces`. 
+* We see our nginx service running. However, in minikube we can only use a type of NodePort for exposing services. On a cloud provider or if we set up a load balancer, we can use the LoadBalancer type. 
+* Open a new window in terminal. Run `minikube service nginx`. This will open up a browser window to our nginx host and port. 
+
+Congrats! We've deployed a workload and exposed it to be reached externally from our local cluster! 
+
