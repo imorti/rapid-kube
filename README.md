@@ -86,3 +86,6 @@ ok fine.
 
 Congrats! You've enabled addons in minikube same as you would kubernetes in a cloud environment. And now, you have metrics being collected on your 
  
+ 
+# Conclusion
+So what have we done? We've set up minikube locally. We've configured kubectl and kube-prompt to get a slick CLI going on with our local cluster. We've run workloads on our cluster. We've even added monitoring with pretty graphs. Well done!
