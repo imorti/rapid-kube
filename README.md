@@ -84,7 +84,7 @@ ok fine.
 * Run `get services --all-namespaces`. Notice under the kube-system namespace you'll see heapster, kube-dns, monitoring-grafana and monitoring-influxdb. 
 * In our terminal window without `kube-prompt` run `minikube service monitoring-grafana --namespace kube-system`. You'll see we're brought to a home page in Grafana. Feel free to click on `Cluster` or `Pods` to see graphs of data we've been collecting since enabling our heapster addon. 
 
-Congrats! You've enabled addons in minikube same as you would kubernetes in a cloud environment. And now, you have metrics being collected on your 
+Congrats! You've enabled addons in minikube same as you would kubernetes in a cloud environment. And now, you have metrics being collected on your local cluster. 
  
  
 # Conclusion
