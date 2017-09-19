@@ -69,3 +69,20 @@ Notice you can tab on your choices as you type? Yeah, that's `kube-prompt` at wo
 
 Congrats! We've deployed a workload and exposed it to be reached externally from our local cluster! 
 
+# Monitoring
+So now we've set up our environment locally, we've set up our tools locally and we've run basic workloads on our minikube cluster. Now, let's add on (haha) some monitoring to our environment. 
+* Run `minikube addons enable heapster`
+* Let's look at our running addons: `minikube addons list`. You'll see heapster is set to `enabled`. 
+* Let's also look at kube-system containers that are running: `get pods --all-namespaces`. Notice we have heapster pods as well as influxdb-grafana pods running. 
+* Let's run `ghost`, the microblogging platform as well. `run ghost --image ghost` which creates our deployment. 
+* Now we expose our deployment with `expose deployment nginx --port 2368 --type NodePort`
+* Now let's look at some metrics with `top nodes`. We see CPU, Memory, by value and by percentage. 
+
+But I want to see pretty graphs...
+
+ok fine. 
+* Run `get services --all-namespaces`. Notice under the kube-system namespace you'll see heapster, kube-dns, monitoring-grafana and monitoring-influxdb. 
+* In our terminal window without `kube-prompt` run `minikube service monitoring-grafana --namespace kube-system`. You'll see we're brought to a home page in Grafana. Feel free to click on `Cluster` or `Pods` to see graphs of data we've been collecting since enabling our heapster addon. 
+
+Congrats! You've enabled addons in minikube same as you would kubernetes in a cloud environment. And now, you have metrics being collected on your 
+ 
